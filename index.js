@@ -284,19 +284,40 @@ const cards = [
 let player1 = [];
 let player2 = [];
 
-let numbersOfCards = [];
+let replacementPlayer1 = [];
+let replacementPlayer2 = [];
 
-for (let i = 0; i < 56; i++) {
-  numbersOfCards.push(i);
-}
-const shuffledArray = numbersOfCards.sort((a, b) => 0.5 - Math.random());
+function cardShuffling() {
+  let numbersOfCards = [];
 
-for (let i = 0; i < shuffledArray.length / 2; i++) {
-  player1.push(shuffledArray[i]);
+  for (let i = 0; i < 56; i++) {
+    numbersOfCards.push(i);
+  }
+  const shuffledArray = numbersOfCards.sort((a, b) => 0.5 - Math.random());
+
+  for (let i = 0; i < shuffledArray.length / 2; i++) {
+    player1.push(shuffledArray[i]);
+  }
+  shuffledArray.splice(0, 28);
+  for (let i = 0; i < shuffledArray.length; i++) {
+    player2.push(shuffledArray[i]);
+  }
 }
-shuffledArray.splice(0, 28);
-for (let i = 0; i < shuffledArray.length; i++) {
-  player2.push(shuffledArray[i]);
+function replacementDataCardsPlayer1() {
+  for (let i = 0; i < player1.length; i++) {
+    replacementPlayer1.push(cards[player1[i]]);
+  }
 }
+function replacementDataCardsPlayer2() {
+  for (let i = 0; i < player2.length; i++) {
+    replacementPlayer2.push(cards[player2[i]]);
+  }
+}
+
+cardShuffling();
+replacementDataCardsPlayer1();
+replacementDataCardsPlayer2();
+console.log(replacementPlayer1);
+console.log(replacementPlayer2);
 console.log(player1);
 console.log(player2);
