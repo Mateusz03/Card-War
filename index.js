@@ -269,4 +269,34 @@ const cards = [
     color: "Black",
     value: 14,
   },
+  {
+    name: "Joker",
+    color: "Red",
+    value: 14,
+  },
+  {
+    name: "Joker",
+    color: "Black",
+    value: 14,
+  },
 ];
+
+let player1 = [];
+let player2 = [];
+
+let numbersOfCards = [];
+
+for (let i = 0; i < 56; i++) {
+  numbersOfCards.push(i);
+}
+const shuffledArray = numbersOfCards.sort((a, b) => 0.5 - Math.random());
+
+for (let i = 0; i < shuffledArray.length / 2; i++) {
+  player1.push(shuffledArray[i]);
+}
+shuffledArray.splice(0, 28);
+for (let i = 0; i < shuffledArray.length; i++) {
+  player2.push(shuffledArray[i]);
+}
+console.log(player1);
+console.log(player2);
