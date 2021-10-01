@@ -373,27 +373,18 @@ function replacementDataCardsPlayer2() {
 
 let p1Container = document.querySelector(".p1Container");
 let p2Container = document.querySelector(".p2Container");
-
-// let globalTicks = 0;
+let p1length = document.querySelector(".p1length");
+let p2length = document.querySelector(".p2length");
 
 let NextTour = document.querySelector(".NextTour");
 NextTour.addEventListener("click", () => {
-  // p1Container.innerHTML = "";
-  // p2Container.innerHTML = "";
-
   p1Container.innerHTML =
     `<img src= "cards/` + replacementPlayer1[0].img + `" class= "image">`;
-
+  p1length.innerHTML = replacementPlayer1.length;
   p2Container.innerHTML =
     `<img src= "cards/` + replacementPlayer2[0].img + `" class= "image">`;
-
-  // p1Container.innerHTML =
-  //   replacementPlayer1[0].name + "<br>" + replacementPlayer1[0].color;
-
-  // p2Container.innerHTML =
-  //   replacementPlayer2[0].name + "<br>" + replacementPlayer2[0].color;
-
-  if (replacementPlayer1[0].value < replacementPlayer2[0].value) {
+  p2length.innerHTML = replacementPlayer2.length;
+  if (replacementPlayer1[0].value > replacementPlayer2[0].value) {
     let c1 = replacementPlayer1.shift();
     let c2 = replacementPlayer2.shift();
     replacementPlayer1.push(c1);
@@ -401,12 +392,9 @@ NextTour.addEventListener("click", () => {
     if (w8tingArr.length > 0) {
       replacementPlayer1.push(...w8tingArr);
       w8tingArr = [];
+      document.querySelector(".reverseDiv").style.display = "none";
     }
-    console.log(replacementPlayer1);
-    console.log(replacementPlayer2);
-    console.log(w8tingArr);
-    console.log("_________________");
-  } else if (replacementPlayer1[0].value > replacementPlayer2[0].value) {
+  } else if (replacementPlayer1[0].value < replacementPlayer2[0].value) {
     let c1 = replacementPlayer1.shift();
     let c2 = replacementPlayer2.shift();
     replacementPlayer2.push(c2);
@@ -414,26 +402,23 @@ NextTour.addEventListener("click", () => {
     if (w8tingArr.length > 0) {
       replacementPlayer2.push(...w8tingArr);
       w8tingArr = [];
+      document.querySelector(".reverseDiv").style.display = "none";
     }
-    console.log(replacementPlayer1);
-    console.log(replacementPlayer2);
-    console.log(w8tingArr);
-    console.log("_________________");
   } else {
     let c1 = replacementPlayer1.shift();
     let c2 = replacementPlayer2.shift();
     w8tingArr.push(c1);
     w8tingArr.push(c2);
-    console.log(replacementPlayer1);
-    console.log(replacementPlayer2);
-    console.log(w8tingArr);
-    console.log("_________________");
+
+    document.querySelector(".reverseDiv").style.display = "block";
   }
 
   if (replacementPlayer1.length === 0) {
     console.log("p2 win");
+    alert("p2 win");
   } else if (replacementPlayer2.length === 0) {
     console.log("p1 win");
+    alert("p1 win");
   }
 });
 

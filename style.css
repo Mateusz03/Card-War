@@ -6,6 +6,15 @@ Body {
   display: flex;
   justify-content: center;
 }
+.unmOfCards {
+  position: absolute;
+  top: 80px;
+  display: flex;
+}
+.plength {
+  margin-left: 200px;
+  margin-right: 200px;
+}
 .NextTour {
   margin-top: 150px;
   margin-left: 20px;
@@ -20,4 +29,16 @@ Body {
 .constainers {
   width: 200px;
   height: 400px;
+}
+.reverseDiv {
+  margin-top: 500px;
+  position: absolute;
+  width: 390px;
+  height: 400px;
+  display: none;
+}
+.reverse {
+  padding: 5px;
+  width: 180px;
+  height: 252px;
 }
